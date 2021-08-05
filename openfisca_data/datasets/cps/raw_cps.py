@@ -7,7 +7,6 @@ from zipfile import ZipFile
 @dataset
 class RawCPS:
     name = "raw_cps"
-    model = US
 
     def generate(year):
         try:
@@ -39,8 +38,6 @@ class RawCPS:
                 progress_bar.close()
                 zipfile = ZipFile(file)
                 with zipfile.open(f"pppub{year_code}.csv") as f:
-                    df = pd.read_csv(f)
-                    print(df)
                     storage["person"] = pd.read_csv(f)
                 with zipfile.open(f"ffpub{year_code}.csv") as f:
                     storage["family"] = pd.read_csv(f)
