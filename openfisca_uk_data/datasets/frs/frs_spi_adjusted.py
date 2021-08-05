@@ -1,8 +1,4 @@
-from openfisca_uk_data.utils import (
-    MAIN_INPUT_VARIABLES,
-    dataset,
-    uprate_variables,
-)
+from openfisca_uk_data.utils import *
 import synthimpute as si
 import numpy as np
 import h5py
@@ -11,7 +7,7 @@ import h5py
 @dataset
 class FRS_SPI_Adjusted:
     name = "frs_spi_adj"
-    openfisca_uk_compatible = True
+    model = UK
     input_reform_from_year = uprate_variables(MAIN_INPUT_VARIABLES)
 
     def generate(year):

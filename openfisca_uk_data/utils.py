@@ -13,15 +13,20 @@ import h5py
 import requests
 from tqdm import tqdm
 
+UK = "openfisca_uk"
+US = "openfisca_us"
+
 
 def dataset(cls):
     def generate():
         raise NotImplementedError("No dataset generation function specified")
 
-    if cls.openfisca_uk_compatible:
-        cls.data_dir = data_folder(DATA_DIR / "openfisca_uk")
-    else:
+    if not hasattr(cls, model):
+        cls.model = None
         cls.data_dir = data_folder(DATA_DIR / "external")
+    else:
+        cls.data_dir = data_folder(DATA_DIR / cls.model)
+
 
     def years(self):
         pattern = re.compile(f"\n{cls.name}_([0-9]+).h5")
@@ -52,7 +57,7 @@ def dataset(cls):
 
     def load(year) -> pd.DataFrame:
         file = cls.data_dir / cls.filename(year)
-        if cls.openfisca_uk_compatible:
+        if cls.model:
             if not file.exists():
                 try:
                     cls.generate(year)

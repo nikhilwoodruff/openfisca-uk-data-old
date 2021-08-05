@@ -2,7 +2,7 @@ from openfisca_uk_data.datasets.frs.raw_frs import RawFRS
 from pathlib import Path
 from typing import List
 from openfisca_core.model_api import *
-from openfisca_uk_data.utils import dataset
+from openfisca_uk_data.utils import *
 import pandas as pd
 import shutil
 from openfisca_uk_data.utils import (
@@ -51,7 +51,7 @@ def from_FRS(year: int = 2018):
 @dataset
 class FRS:
     name = "frs"
-    openfisca_uk_compatible = True
+    model = UK
     input_reform_from_year = from_FRS
 
     def generate(year) -> None:

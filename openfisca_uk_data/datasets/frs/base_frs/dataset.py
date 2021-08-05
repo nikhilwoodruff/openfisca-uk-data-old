@@ -1,7 +1,7 @@
 from openfisca_uk_data.datasets.frs.base_frs.model_input_variables import (
     from_BaseFRS,
 )
-from openfisca_uk_data.utils import dataset
+from openfisca_uk_data.utils import dataset, UK
 import pandas as pd
 import numpy as np
 import warnings
@@ -12,7 +12,7 @@ import h5py
 @dataset
 class BaseFRS:
     name = "base_frs"
-    openfisca_uk_compatible = True
+    model = UK
     input_reform_from_year = from_BaseFRS
 
     def generate(year):

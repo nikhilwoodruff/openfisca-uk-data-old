@@ -4,12 +4,7 @@ from openfisca_core.model_api import *
 from openfisca_uk_data.datasets.spi.base_spi.model_input_variables import (
     get_input_variables,
 )
-from openfisca_uk_data.utils import (
-    CAPITAL_INCOME_VARIABLES,
-    LABOUR_INCOME_VARIABLES,
-    dataset,
-    uprated,
-)
+from openfisca_uk_data.utils import *
 import h5py
 
 
@@ -47,7 +42,7 @@ def from_FRS(year: int = 2018):
 @dataset
 class SPI:
     name = "spi"
-    openfisca_uk_compatible = True
+    model = UK
 
     def generate(year):
         base_frs_years = BaseSPI().years

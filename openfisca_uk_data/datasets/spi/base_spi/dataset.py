@@ -1,7 +1,7 @@
 from openfisca_uk_data.datasets.spi.base_spi.model_input_variables import (
     from_BaseSPI,
 )
-from openfisca_uk_data.utils import dataset
+from openfisca_uk_data.utils import *
 from openfisca_uk_data.datasets.spi.raw_spi import RawSPI
 import numpy as np
 import pandas as pd
@@ -12,7 +12,7 @@ import h5py
 @dataset
 class BaseSPI:
     name = "base_spi"
-    openfisca_uk_compatible = True
+    model = UK
     input_reform_from_year = from_BaseSPI
 
     def generate(year):

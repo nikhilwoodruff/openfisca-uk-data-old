@@ -14,7 +14,6 @@ import warnings
 @dataset
 class RawFRS:
     name = "raw_frs"
-    openfisca_uk_compatible = False
 
     def generate(year, zipfile) -> None:
         folder = Path(zipfile)

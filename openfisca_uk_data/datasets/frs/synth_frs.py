@@ -1,4 +1,4 @@
-from openfisca_uk_data.utils import dataset
+from openfisca_uk_data.utils import *
 from openfisca_uk_data.datasets.frs.frs import FRS
 import shutil
 import pandas as pd
@@ -13,7 +13,7 @@ DEFAULT_SYNTH_URL = "https://github.com/nikhilwoodruff/openfisca-uk-data/release
 @dataset
 class SynthFRS:
     name = "synth_frs"
-    openfisca_uk_compatible = True
+    model = UK
     input_reform_from_year = FRS.input_reform_from_year
 
     def generate(year):

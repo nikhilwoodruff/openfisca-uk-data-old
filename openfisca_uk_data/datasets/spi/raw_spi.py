@@ -1,4 +1,4 @@
-from openfisca_uk_data.utils import dataset
+from openfisca_uk_data.utils import *
 from pathlib import Path
 import shutil
 from tqdm import tqdm
@@ -8,7 +8,7 @@ import pandas as pd
 @dataset
 class RawSPI:
     name = "raw_spi"
-    openfisca_uk_compatible = False
+    model = UK
 
     def generate(year, zipfile) -> None:
         folder = Path(zipfile)
