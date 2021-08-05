@@ -1,11 +1,11 @@
-from openfisca_uk_data.utils import (
+from openfisca_data.utils import (
     CAPITAL_INCOME_VARIABLES,
     LABOUR_INCOME_VARIABLES,
     uprated,
 )
 from openfisca_core.model_api import *
 
-from openfisca_uk_data.datasets.frs.base_frs.survey_input_variables import (
+from openfisca_data.datasets.frs.base_frs.survey_input_variables import (
     get_FRS_variables,
 )
 

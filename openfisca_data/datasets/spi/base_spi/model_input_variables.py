@@ -1,9 +1,9 @@
 from openfisca_core.model_api import *
-from openfisca_uk_data.datasets.spi.base_spi.survey_input_variables import (
+from openfisca_data.datasets.spi.base_spi.survey_input_variables import (
     get_SPI_variables,
 )
 import numpy as np
-from openfisca_uk_data.utils import (
+from openfisca_data.utils import (
     LABOUR_INCOME_VARIABLES,
     CAPITAL_INCOME_VARIABLES,
     uprated,

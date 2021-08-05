@@ -1,5 +1,5 @@
-from openfisca_uk_data.utils import *
-from openfisca_uk_data.datasets.frs.frs import FRS
+from openfisca_data.utils import *
+from openfisca_data.datasets.frs.frs import FRS
 import shutil
 import pandas as pd
 import numpy as np

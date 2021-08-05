@@ -16,33 +16,39 @@ from tqdm import tqdm
 UK = "openfisca_uk"
 US = "openfisca_us"
 
+class classproperty(object):
+    def __init__(self, f):
+        self.f = f
+    def __get__(self, obj, owner):
+        return self.f(owner)
+
 
 def dataset(cls):
     def generate():
         raise NotImplementedError("No dataset generation function specified")
 
-    if not hasattr(cls, model):
+    if not hasattr(cls, "model"):
         cls.model = None
         cls.data_dir = data_folder(DATA_DIR / "external")
     else:
         cls.data_dir = data_folder(DATA_DIR / cls.model)
 
-    def years(self):
-        pattern = re.compile(f"\n{cls.name}_([0-9]+).h5")
+    def years(cl):
+        pattern = re.compile(f"\n{cl.name}_([0-9]+).h5")
         matches = list(
             map(
                 int,
                 pattern.findall(
                     "\n"
                     + "\n".join(
-                        map(lambda path: path.name, cls.data_dir.iterdir())
+                        map(lambda path: path.name, cl.data_dir.iterdir())
                     )
                 ),
             )
         )
         return matches
 
-    cls.years = property(years)
+    cls.years = classproperty(years)
 
     def last_year(self):
         return sorted(cls.years)[-1]

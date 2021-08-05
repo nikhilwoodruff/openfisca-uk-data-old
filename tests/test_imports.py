@@ -1,14 +1,14 @@
 def test_import():
-    import openfisca_uk_data
+    import openfisca_data
 
 
 def test_RawFRS_import():
-    from openfisca_uk_data import RawFRS
+    from openfisca_data import RawFRS
 
 
 def test_BaseFRS_import():
-    from openfisca_uk_data import BaseFRS
+    from openfisca_data import BaseFRS
 
 
 def test_FRS_import():
-    from openfisca_uk_data import FRS
+    from openfisca_data import FRS

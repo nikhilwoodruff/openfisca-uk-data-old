@@ -19,6 +19,6 @@ setup(
         "synthimpute @ git+https://github.com/PSLmodels/synthimpute",
     ],
     entry_points={
-        "console_scripts": ["openfisca-uk-data=openfisca_uk_data.cli:main"],
+        "console_scripts": ["openfisca-uk-data=openfisca_data.cli:main"],
     },
 )

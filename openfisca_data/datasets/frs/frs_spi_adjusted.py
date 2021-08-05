@@ -1,4 +1,4 @@
-from openfisca_uk_data.utils import *
+from openfisca_data.utils import *
 import synthimpute as si
 import numpy as np
 import h5py
@@ -12,8 +12,8 @@ class FRS_SPI_Adjusted:
 
     def generate(year):
         from openfisca_uk import Microsimulation
-        from openfisca_uk_data.datasets.frs.frs import FRS
-        from openfisca_uk_data.datasets.spi import SPI
+        from openfisca_data.datasets.frs.frs import FRS
+        from openfisca_data.datasets.spi import SPI
 
         frs_sim = Microsimulation(dataset=FRS, year=year)
         spi_sim = Microsimulation(dataset=SPI, year=year)

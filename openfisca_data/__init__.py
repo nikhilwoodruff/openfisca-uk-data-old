@@ -1,5 +1,5 @@
 from pathlib import Path
-from openfisca_uk_data.datasets import (
+from openfisca_data.datasets import (
     RawFRS,
     BaseFRS,
     FRS,

@@ -1,18 +1,18 @@
-from openfisca_uk_data.datasets.frs.raw_frs import RawFRS
+from openfisca_data.datasets.frs.raw_frs import RawFRS
 from pathlib import Path
 from typing import List
 from openfisca_core.model_api import *
-from openfisca_uk_data.utils import *
+from openfisca_data.utils import *
 import pandas as pd
 import shutil
-from openfisca_uk_data.utils import (
+from openfisca_data.utils import (
     CAPITAL_INCOME_VARIABLES,
     LABOUR_INCOME_VARIABLES,
     uprated,
 )
 import h5py
-from openfisca_uk_data.datasets.frs.base_frs.dataset import BaseFRS
-from openfisca_uk_data.datasets.frs.base_frs.model_input_variables import (
+from openfisca_data.datasets.frs.base_frs.dataset import BaseFRS
+from openfisca_data.datasets.frs.base_frs.model_input_variables import (
     get_input_variables,
 )
 
