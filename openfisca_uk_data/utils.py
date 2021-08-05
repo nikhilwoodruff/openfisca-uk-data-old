@@ -27,7 +27,6 @@ def dataset(cls):
     else:
         cls.data_dir = data_folder(DATA_DIR / cls.model)
 
-
     def years(self):
         pattern = re.compile(f"\n{cls.name}_([0-9]+).h5")
         matches = list(
