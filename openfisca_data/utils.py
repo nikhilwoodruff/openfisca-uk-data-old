@@ -65,13 +65,6 @@ def dataset(cls):
     def load(year) -> pd.DataFrame:
         file = cls.data_dir / cls.filename(year)
         if cls.model:
-            if not file.exists():
-                try:
-                    cls.generate(year)
-                except:
-                    print(
-                        "No data for the specified year and dataset, and generation failed."
-                    )
             return h5py.File(file)
         else:
             return pd.HDFStore(file)

@@ -8,4 +8,5 @@ from openfisca_data.datasets import (
     RawSPI,
     BaseSPI,
     SPI,
+    RawCPS,
 )

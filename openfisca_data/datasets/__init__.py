@@ -6,3 +6,4 @@ from openfisca_data.datasets.frs import (
     SynthFRS,
 )
 from openfisca_data.datasets.spi import RawSPI, BaseSPI, SPI
+from openfisca_data.datasets.cps import RawCPS

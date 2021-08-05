@@ -1,4 +1,5 @@
 from argparse import ArgumentParser
+from openfisca_data.datasets.cps.raw_cps import RawCPS
 from openfisca_data import (
     RawFRS,
     BaseFRS,
@@ -23,6 +24,7 @@ def main():
             BaseSPI,
             SPI,
             FRS_SPI_Adjusted,
+            RawCPS,
         )
     }
     parser = ArgumentParser(
