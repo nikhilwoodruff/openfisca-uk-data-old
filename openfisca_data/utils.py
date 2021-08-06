@@ -12,6 +12,7 @@ from functools import wraps
 import h5py
 import requests
 from tqdm import tqdm
+import numpy as np
 
 UK = "openfisca_uk"
 US = "openfisca_us"
@@ -62,12 +63,22 @@ def dataset(cls):
 
     cls.filename = staticmethod(filename)
 
-    def load(year) -> pd.DataFrame:
+    def load(year, key: str = None) -> pd.DataFrame:
         file = cls.data_dir / cls.filename(year)
         if cls.model:
-            return h5py.File(file)
+            if key is None:
+                return h5py.File(file)
+            else:
+                with h5py.File(file) as f:
+                    values = np.array(f[key])
+                return values
         else:
-            return pd.HDFStore(file)
+            if key is None:
+                return pd.HDFStore(file)
+            else:
+                with pd.HDFStore(file) as f:
+                    values = f[key]
+                return values
 
     def remove(year=None):
         if year is None:
