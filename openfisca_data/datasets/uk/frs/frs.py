@@ -1,4 +1,4 @@
-from openfisca_data.datasets.frs.raw_frs import RawFRS
+from openfisca_data.datasets.uk.frs.raw_frs import RawFRS
 from pathlib import Path
 from typing import List
 from openfisca_core.model_api import *
@@ -11,8 +11,8 @@ from openfisca_data.utils import (
     uprated,
 )
 import h5py
-from openfisca_data.datasets.frs.base_frs.dataset import BaseFRS
-from openfisca_data.datasets.frs.base_frs.model_input_variables import (
+from openfisca_data.datasets.uk.frs.base_frs.dataset import BaseFRS
+from openfisca_data.datasets.uk.frs.base_frs.model_input_variables import (
     get_input_variables,
 )
 

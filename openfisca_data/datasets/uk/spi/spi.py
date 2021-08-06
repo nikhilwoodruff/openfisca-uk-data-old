@@ -1,7 +1,7 @@
-from openfisca_data.datasets.spi.base_spi import BaseSPI
-from openfisca_data.datasets.spi.raw_spi import RawSPI
+from openfisca_data.datasets.uk.spi.base_spi import BaseSPI
+from openfisca_data.datasets.uk.spi.raw_spi import RawSPI
 from openfisca_core.model_api import *
-from openfisca_data.datasets.spi.base_spi.model_input_variables import (
+from openfisca_data.datasets.uk.spi.base_spi.model_input_variables import (
     get_input_variables,
 )
 from openfisca_data.utils import *

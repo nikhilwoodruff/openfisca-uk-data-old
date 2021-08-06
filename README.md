@@ -15,7 +15,7 @@ To get this package working with the FRS microdata:
 
 ## General framework
 
-This package is designed to be simple to add new OpenFisca-UK-compatible datasets. To add a new dataset:
+This package is designed to be simple to add new OpenFisca-UK-compatible datasets.uk. To add a new dataset:
 1. Add a new Python module as a single file or folder with `__init__.py` (optional)
 2. Create a class with the `@dataset` decorator (from `utils.py`)
 3. Define a `generate(year)` method
