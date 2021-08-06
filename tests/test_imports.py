@@ -12,3 +12,6 @@ def test_BaseFRS_import():
 
 def test_FRS_import():
     from openfisca_data import FRS
+
+def test_RawCPS_import():
+    from openfisca_data import RawCPS
