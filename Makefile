@@ -1,5 +1,5 @@
 format:
 	black . -l 79
-test:
+test: format
 	black . -l 79 --check
 	pytest tests
