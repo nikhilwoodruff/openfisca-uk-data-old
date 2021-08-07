@@ -5,7 +5,7 @@ from openfisca_core.model_api import Variable, YEAR, Reform
 
 
 def get_input_variables():
-    from openfisca_us.entities import Person, TaxUnit
+    from openfisca_us.entities import Person
 
     class interest_income(Variable):
         value_type = float
