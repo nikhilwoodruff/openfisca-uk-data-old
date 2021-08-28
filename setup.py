@@ -3,7 +3,9 @@ from setuptools import setup, find_packages
 setup(
     name="openfisca-uk-data",
     version="0.1.1",
-    description=("A Python package to manage OpenFisca-UK-compatible microdata"),
+    description=(
+        "A Python package to manage OpenFisca-UK-compatible microdata"
+    ),
     url="http://github.com/ubicenter/openfisca-data",
     author="Nikhil Woodruff",
     author_email="nikhil.woodruff@outlook.com",
