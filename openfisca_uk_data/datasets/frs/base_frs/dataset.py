@@ -1,11 +1,11 @@
-from openfisca_data.datasets.uk.frs.base_frs.model_input_variables import (
+from openfisca_uk_data.datasets.frs.base_frs.model_input_variables import (
     from_BaseFRS,
 )
 from openfisca_data.utils import dataset, UK
 import pandas as pd
 import numpy as np
 import warnings
-from openfisca_data.datasets.uk.frs.raw_frs import RawFRS
+from openfisca_uk_data.datasets.frs.raw_frs import RawFRS
 import h5py
 
 

@@ -1,5 +1,5 @@
 from openfisca_core.model_api import *
-from openfisca_data.datasets.uk.spi.base_spi.survey_input_variables import (
+from openfisca_uk_data.datasets.spi.base_spi.survey_input_variables import (
     get_SPI_variables,
 )
 import numpy as np

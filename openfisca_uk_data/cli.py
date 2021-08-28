@@ -1,5 +1,5 @@
 from argparse import ArgumentParser
-from openfisca_data import *
+from openfisca_uk_data import *
 
 
 def main():
@@ -19,7 +19,7 @@ def main():
         )
     }
     parser = ArgumentParser(
-        description="A utility for storing OpenFisca-compatible microdata."
+        description="A utility for storing OpenFisca-UK-compatible microdata."
     )
     parser.add_argument("dataset", help="The dataset to select")
     parser.add_argument("action", help="The action to take")

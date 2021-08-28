@@ -1,11 +1,20 @@
-from openfisca_data.datasets.uk.spi.base_spi import BaseSPI
-from openfisca_data.datasets.uk.spi.raw_spi import RawSPI
+from openfisca_uk_data.datasets.frs.raw_frs import RawFRS
+from pathlib import Path
+from typing import List
 from openfisca_core.model_api import *
-from openfisca_data.datasets.uk.spi.base_spi.model_input_variables import (
+from openfisca_data.utils import *
+import pandas as pd
+import shutil
+from openfisca_data.utils import (
+    CAPITAL_INCOME_VARIABLES,
+    LABOUR_INCOME_VARIABLES,
+    uprated,
+)
+import h5py
+from openfisca_uk_data.datasets.frs.base_frs.dataset import BaseFRS
+from openfisca_uk_data.datasets.frs.base_frs.model_input_variables import (
     get_input_variables,
 )
-from openfisca_data.utils import *
-import h5py
 
 
 def from_FRS(year: int = 2018):
@@ -40,24 +49,24 @@ def from_FRS(year: int = 2018):
 
 
 @dataset
-class SPI:
-    name = "spi"
+class FRS:
+    name = "frs"
     model = UK
+    input_reform_from_year = from_FRS
 
-    def generate(year):
-        base_frs_years = BaseSPI().years
+    def generate(year) -> None:
+        base_frs_years = BaseFRS().years
         if len(base_frs_years) == 0:
-            raw_frs_years = RawSPI().years
+            raw_frs_years = RawFRS().years
             if len(raw_frs_years) == 0:
                 raise Exception("No FRS microdata to generate from")
             else:
                 base_frs_year = max(raw_frs_years)
         else:
             base_frs_year = max(base_frs_years)
-
         from openfisca_uk import Microsimulation
 
-        base_frs_sim = Microsimulation(dataset=BaseSPI, year=base_frs_year)
+        base_frs_sim = Microsimulation(dataset=BaseFRS, year=base_frs_year)
         person_vars, benunit_vars, household_vars = [
             [
                 var.__name__
@@ -66,17 +75,8 @@ class SPI:
             ]
             for entity in ("person", "benunit", "household")
         ]
-        person_vars += [
-            "P_person_id",
-            "P_benunit_id",
-            "P_household_id",
-            "P_role",
-        ]
-        benunit_vars += ["B_benunit_id"]
-        household_vars += ["H_household_id"]
-        with h5py.File(SPI.file(year), mode="w") as f:
-            for year in range(int(year), int(year) + 10):
-                for variable in person_vars + benunit_vars + household_vars:
-                    f[f"{variable}/{year}"] = base_frs_sim.calc(
-                        variable, year
-                    ).values
+        with h5py.File(FRS.file(year), mode="w") as f:
+            for variable in person_vars + benunit_vars + household_vars:
+                f[f"{variable}/{year}"] = base_frs_sim.calc(
+                    variable, year
+                ).values
