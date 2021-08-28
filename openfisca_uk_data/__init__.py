@@ -1,4 +1,1 @@
-from openfisca_data.datasets import *
-
-UK_DATASETS = (FRS, FRS_SPI_Adjusted, BaseFRS, SynthFRS, SPI, BaseSPI)
-US_DATASETS = (RawCPS, BaseCPS)
+from openfisca_uk_data.datasets import *

@@ -4,7 +4,7 @@ from openfisca_core.model_api import *
 from openfisca_uk_data.datasets.spi.base_spi.model_input_variables import (
     get_input_variables,
 )
-from openfisca_data.utils import *
+from openfisca_uk_data.utils import *
 import h5py
 
 

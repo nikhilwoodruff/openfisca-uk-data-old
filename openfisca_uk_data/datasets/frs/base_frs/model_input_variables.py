@@ -1,4 +1,4 @@
-from openfisca_data.utils import (
+from openfisca_uk_data.utils import (
     CAPITAL_INCOME_VARIABLES,
     LABOUR_INCOME_VARIABLES,
     uprated,
